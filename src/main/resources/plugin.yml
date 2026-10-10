@@ -1,0 +1,9 @@
+  name: VersatiaExample-DI-Qualifiers
+  version: '${version}'
+  main: com.github.marcoral.versatia.example.qualifiers.QualifiersPlugin
+  api-version: '1.21'
+  author: Versatia
+  description: Several beans of one type, selected by @Primary and @Qualifier.
+  # Kotlin classes come from VersatiaCore's class loader; do not list kotlin-stdlib here
+  depend:
+- VersatiaCore
