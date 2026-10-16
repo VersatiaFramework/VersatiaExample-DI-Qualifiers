@@ -15,7 +15,7 @@ class FriendlyGreeter : Greeter {
     override fun greeting() = "Welcome!"
 }
 
-/** Reachable only by name: `@Qualifier` renames the bean. */
+/** `@Qualifier` renames the bean; it is still a `Greeter` candidate, which is why `FriendlyGreeter` needs `@Primary`. */
 @LocalBean
 @Qualifier("grumpy")
 class GrumpyGreeter : Greeter {
@@ -23,15 +23,15 @@ class GrumpyGreeter : Greeter {
 }
 
 @LocalBean
-class FrontDesk(greeter: Greeter) {
+class FrontDesk(greeter: Greeter, plugin: QualifiersPlugin) {
     init {
-        log("got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
+        plugin.logger.info("FrontDesk got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
     }
 }
 
 @LocalBean
-class ComplaintDesk(@Qualifier("grumpy") greeter: Greeter) {
+class ComplaintDesk(@Qualifier("grumpy") greeter: Greeter, plugin: QualifiersPlugin) {
     init {
-        log("got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
+        plugin.logger.info("ComplaintDesk got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
     }
 }

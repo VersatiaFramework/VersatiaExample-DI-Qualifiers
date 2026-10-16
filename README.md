@@ -1,29 +1,33 @@
-    # VersatiaExample-DI-Qualifiers
+# VersatiaExample-DI-Qualifiers
 
-    Two beans provide the same interface: `@Primary` picks the default and `@Qualifier` asks for the other one by name.
+Two beans provide the same interface: `@Primary` picks the default and `@Qualifier` asks for the other one by name.
 
-    Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Names, qualifiers and @Primary](https://versatiaframework.github.io/VersatiaDocs/docs/dependency-injection/qualifiers).
+Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Names, qualifiers and @Primary](https://versatiaframework.github.io/VersatiaDocs/docs/dependency-injection/qualifiers).
 
-    **Start with** [`Greeters.kt`](src/main/kotlin/com/github/marcoral/versatia/example/qualifiers/Greeters.kt).
+**Start with** [`Greeters.kt`](src/main/kotlin/com/github/marcoral/versatia/example/qualifiers/Greeters.kt).
 
-    ## What the log shows
+## What the log shows
 
-    ```
-    [FrontDesk] got the FriendlyGreeter: Welcome!
-[ComplaintDesk] got the GrumpyGreeter: What do you want?
-    ```
-
+```
+[VersatiaExample-DI-Qualifiers] FrontDesk got the FriendlyGreeter: Welcome!
+[VersatiaExample-DI-Qualifiers] ComplaintDesk got the GrumpyGreeter: What do you want?
+```
 
 ## Things to try
 
 - Remove `@Primary` from `FriendlyGreeter`: the build fails because `Greeter` is ambiguous for
   `FrontDesk`, and the message lists both candidates by name.
-- Change `@Qualifier("grumpy")` on `ComplaintDesk` to a name no bean has: the build fails too.
+- Change `@Qualifier("grumpy")` on `ComplaintDesk` to a name no bean has: the build still
+  succeeds, because another plugin may expose a bean of that name, and the plugin fails to enable
+  with `no bean provides ..., required by ...ComplaintDesk`.
+- Change it to `@Qualifier("frontDesk")`, a bean that is not a `Greeter`: now the build fails.
 
 ## Building
 
-Requires JDK 21 and VersatiaAPI in your local Maven repository (`./gradlew publishToMavenLocal`
-in its checkout); running it requires a Paper 1.21.4 server with VersatiaCore installed.
+Requires JDK 21 and VersatiaStarter with what it exports (VersatiaAPI, the module APIs) in your
+local Maven repository (`./gradlew publishToMavenLocal` in each checkout; see
+[Building the framework](https://versatiaframework.github.io/VersatiaDocs/docs/contributing/building));
+running it requires a Paper 1.21.4 server with VersatiaCore installed.
 
 ```bash
 ./gradlew build
