@@ -9,8 +9,8 @@ Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExa
 ## What the log shows
 
 ```
-[VersatiaExample-DI-Qualifiers] FrontDesk got the FriendlyGreeter: Welcome!
 [VersatiaExample-DI-Qualifiers] ComplaintDesk got the GrumpyGreeter: What do you want?
+[VersatiaExample-DI-Qualifiers] FrontDesk got the FriendlyGreeter: Welcome!
 ```
 
 ## Things to try
