@@ -3,6 +3,7 @@ package com.github.marcoral.versatia.example.qualifiers
 import com.github.marcoral.versatia.di.LocalBean
 import com.github.marcoral.versatia.di.Primary
 import com.github.marcoral.versatia.di.Qualifier
+import java.util.logging.Logger
 
 interface Greeter {
     fun greeting(): String
@@ -23,15 +24,15 @@ class GrumpyGreeter : Greeter {
 }
 
 @LocalBean
-class FrontDesk(greeter: Greeter, plugin: QualifiersPlugin) {
+class FrontDesk(greeter: Greeter, logger: Logger) {
     init {
-        plugin.logger.info("FrontDesk got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
+        logger.info("FrontDesk got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
     }
 }
 
 @LocalBean
-class ComplaintDesk(@Qualifier("grumpy") greeter: Greeter, plugin: QualifiersPlugin) {
+class ComplaintDesk(@Qualifier("grumpy") greeter: Greeter, logger: Logger) {
     init {
-        plugin.logger.info("ComplaintDesk got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
+        logger.info("ComplaintDesk got the ${greeter.javaClass.simpleName}: ${greeter.greeting()}")
     }
 }
