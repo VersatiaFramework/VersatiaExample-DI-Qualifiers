@@ -1,6 +1,6 @@
 name: VersatiaExample-DI-Qualifiers
 version: '${version}'
-main: com.github.marcoral.versatia.example.qualifiers.QualifiersPlugin
+main: dev.versatia.example.qualifiers.QualifiersPlugin
 api-version: '1.21'
 author: Versatia
 description: Several beans of one type, selected by @Primary and @Qualifier.

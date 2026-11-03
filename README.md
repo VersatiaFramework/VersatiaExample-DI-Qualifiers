@@ -2,9 +2,9 @@
 
 Two beans provide the same interface: `@Primary` picks the default and `@Qualifier` asks for the other one by name.
 
-Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Names, qualifiers and @Primary](https://versatiaframework.github.io/VersatiaDocs/docs/dependency-injection/qualifiers).
+Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Names, qualifiers and @Primary](https://versatia.dev/docs/dependency-injection/qualifiers).
 
-**Start with** [`Greeters.kt`](src/main/kotlin/com/github/marcoral/versatia/example/qualifiers/Greeters.kt).
+**Start with** [`Greeters.kt`](src/main/kotlin/dev/versatia/example/qualifiers/Greeters.kt).
 
 ## What the log shows
 
@@ -26,7 +26,7 @@ Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExa
 
 Requires JDK 21 and VersatiaAPI in your
 local Maven repository (`./gradlew publishToMavenLocal` in each checkout; see
-[Building the framework](https://versatiaframework.github.io/VersatiaDocs/docs/contributing/building));
+[Building the framework](https://versatia.dev/docs/contributing/building));
 running it requires a Paper 1.21.4 server with VersatiaCore installed.
 
 ```bash

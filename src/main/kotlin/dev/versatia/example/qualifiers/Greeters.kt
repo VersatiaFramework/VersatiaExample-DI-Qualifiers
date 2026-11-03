@@ -1,8 +1,8 @@
-package com.github.marcoral.versatia.example.qualifiers
+package dev.versatia.example.qualifiers
 
-import com.github.marcoral.versatia.di.LocalBean
-import com.github.marcoral.versatia.di.Primary
-import com.github.marcoral.versatia.di.Qualifier
+import dev.versatia.di.LocalBean
+import dev.versatia.di.Primary
+import dev.versatia.di.Qualifier
 import java.util.logging.Logger
 
 interface Greeter {
